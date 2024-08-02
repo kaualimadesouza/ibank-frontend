@@ -28,6 +28,8 @@ Banco fictício desenvolvido com React. A aplicação se integra a uma API propr
 
 ![react][REACT__BADGE]
 ![typescript][TYPESCRIPT__BADGE]
+![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
 
 <h3 id="prerequisites">Pré Requisitos para instalação</h3>
 
