@@ -6,8 +6,6 @@ import { useNavigate } from "react-router-dom";
 export function Login() {
   const navigate = useNavigate();
   const [showPass, setShowPass] = useState(false);
-  //const [login, setLogin] = useState("");
-  //const [password, setPassword] = useState("");
   const [user, setUser] = useState("");
 
   function loginToDashboard(event: FormEvent) {
@@ -54,7 +52,7 @@ export function Login() {
                     placeholder="E-mail or CPF"
                     className="outline-none bg-transparent placeholder:opacity-40 w-full"
                     required
-                    //onChange={(event) => setLogin(event.currentTarget.value)}
+                    
                   />
                 </div>
 
@@ -65,7 +63,7 @@ export function Login() {
                     placeholder="Password"
                     className="outline-none bg-transparent placeholder:opacity-40 w-full"
                     required
-                    //onChange={(event) => setPassword(event.currentTarget.value)}
+                    
                   />
                   <button onClick={showPassword}>
                     {showPass ? (
