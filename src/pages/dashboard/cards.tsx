@@ -1,4 +1,4 @@
-import { CircleDollarSign, Divide, Landmark } from "lucide-react";
+import { CircleDollarSign, Landmark } from "lucide-react";
 import { Footer } from "./components/footer";
 import { Header } from "./components/header";
 import { FormEvent, useEffect, useState } from "react";
@@ -102,10 +102,6 @@ export function Cards() {
     }
   }, []);
 
-  function showCards() {
-    console.log(dataCreditCard);
-  }
-
   function activeCards(event: FormEvent) {
     event.preventDefault();
     API.post(`/user/${userData?.id}/cards/debit/active`, {
@@ -115,8 +111,6 @@ export function Cards() {
     API.post(`/user/${userData?.id}/cards/credit/active`, {
       password,
     });
-
-
   }
 
   return (

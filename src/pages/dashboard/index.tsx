@@ -42,7 +42,6 @@ export function Dashboard() {
   >([]);
   const { user } = useParams();
   const [transferMethod, setTransferMethod] = useState("");
-  const [receiverId, setReceiverId] = useState<User>();
   const [inputoutputTransfers, setinputOutputTransfers] = useState(true);
   const [isHideBalance, setIsHideBalance] = useState(false);
 
