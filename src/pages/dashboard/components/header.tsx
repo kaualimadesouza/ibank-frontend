@@ -1,5 +1,4 @@
 import {
-  Banknote,
   Bolt,
   CircleEllipsis,
   CreditCard,
@@ -9,7 +8,7 @@ import {
 } from "lucide-react";
 import { User } from "..";
 import { useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 interface headerProps {
   userData: User | undefined;
@@ -18,15 +17,10 @@ interface headerProps {
 
 export function Header({ userData }: headerProps) {
   const { user } = useParams();
-  const navigate = useNavigate();
   const [isHideBalance, setIsHideBalance] = useState(false);
 
   function showhideBalance() {
     setIsHideBalance(!isHideBalance);
-  }
-
-  function signout() {
-    navigate("/login");
   }
 
   return (
