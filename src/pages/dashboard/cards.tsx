@@ -116,7 +116,7 @@ export function Cards() {
       password,
     });
 
-    document.location.reload();
+
   }
 
   return (

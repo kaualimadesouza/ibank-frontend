@@ -50,11 +50,11 @@ export function Dashboard() {
     if (user == "demo") {
       API.get(`/user/553.988.118-43/cpf`).then((response) => {
         setUserData(response.data);
-        API.get(`transfer/sender/${response.data.id}`).then((response) => {
+        API.get(`/transfer/sender/${response.data.id}`).then((response) => {
           setTransfersDataSender(response.data);
         });
 
-        API.get(`transfer/receiver/${response.data.id}`).then((response) => {
+        API.get(`/transfer/receiver/${response.data.id}`).then((response) => {
           setTransfersDataReceiver(response.data);
         });
       });
@@ -62,11 +62,11 @@ export function Dashboard() {
       API.get(`/user/${user}/cpf`).then((response) => {
         setUserData(response.data);
 
-        API.get(`transfer/sender/${response.data.id}`).then((response) => {
+        API.get(`/transfer/sender/${response.data.id}`).then((response) => {
           setTransfersDataSender(response.data);
         });
 
-        API.get(`transfer/receiver/${response.data.id}`).then((response) => {
+        API.get(`/transfer/receiver/${response.data.id}`).then((response) => {
           setTransfersDataReceiver(response.data);
         });
       });
@@ -90,6 +90,15 @@ export function Dashboard() {
     );
   }
 
+  async function postTransfer(id_rece: string, moneytosend: FormDataEntryValue | null) {
+    await API.post(`/transfer`, {
+      id_sender: userData?.id,
+      id_receiver: id_rece,
+      amount: moneytosend,
+      type: transferMethod,
+    });
+  }
+
   async function sendTransfer(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
@@ -97,16 +106,13 @@ export function Dashboard() {
     const cpf = data.get("cpf");
     const moneytosend = data.get("moneytosend");
 
-    await API.get(`user/${cpf}/cpf`).then((response) => {
-      API.post(`transfer`, {
-        id_sender: userData?.id,
-        id_receiver: response.data.id,
-        amount: moneytosend,
-        type: transferMethod,
-      });
+    await API.get(`/user/${cpf}/cpf`).then((response) => {
+      postTransfer(response.data.id, moneytosend);
     });
 
-    window.document.location.reload();
+    setTimeout(() => {
+      window.document.location.reload();
+    }, 1000)
   }
 
   function inputs() {
