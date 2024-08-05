@@ -20,7 +20,7 @@
 
 Banco fictício desenvolvido com React. A aplicação se integra a uma API proprietária, disponível no repositório abaixo. Com essa integração, é possível criar usuários, realizar transferências e consultar históricos de compras.
 
-[Website on Vercel](-)
+[Website on Vercel](https://ibank-frontend.vercel.app/)
 
 [Backend Repository](https://github.com/kaualimadesouza/ibank-backend)
 
